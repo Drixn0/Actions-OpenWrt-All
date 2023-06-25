@@ -48,18 +48,18 @@ jobs:
     - name: Create issue using REST API
       run: |
         curl --request POST \
-        --url http://127.0.0.1:8080/push \
+        --url https://push.drixn.com/push/push \
         --header 'Content-Type: application/json; charset=utf-8' \
         --data '{
-          "body": "Test Bark Server",
-          "device_key": "ynJ5Ft4atkMkWeo2PAvFhF",
-          "title": "bleem",
+          "body": "楠神您好，您的【AutoBuild-OpenWrt】仓库的 OpenWRT x86_64 位固件编译正在初始化编译环境和配置，即将开始编译！",
+          "device_key": "DQ7N6NLNXhLnAgZHJjL8PR",
+          "title": "openWRT即将编译",
           "badge": 1,
-          "category": "myNotificationCategory",
+          "category": "category",
           "sound": "minuet.caf",
-          "icon": "https://day.app/assets/images/avatar.jpg",
-          "group": "test",
-          "url": "https://mritd.com"
+          "icon": "https://cdn.drixn.com/img/avatar.png",
+          "group": "openWRT",
+          "url": "https://www.drixn.com"
           }' \
         echo "status=success" >> $GITHUB_OUTPUT
 
