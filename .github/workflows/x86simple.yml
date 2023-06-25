@@ -139,7 +139,6 @@ jobs:
     - name: Check space usage
       if: (!cancelled())
       run: df -hT
-      echo "status=success" >> $GITHUB_OUTPUT
 
     - name: Upload bin directory
       uses: actions/upload-artifact@main
