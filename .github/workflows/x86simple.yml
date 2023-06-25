@@ -45,12 +45,11 @@ jobs:
     - name: Checkout
       uses: actions/checkout@main
 
-    - name: Create issue using REST API
+    - name: Bark 推送
       run: |
-        curl --request POST \
-        --url https://push.drixn.com/push/push \
-        --header 'Content-Type: application/json; charset=utf-8' \
-        --data '{
+        curl -X "POST" "https://push.drixn.com/push/push" \
+        -H 'Content-Type: application/json; charset=utf-8' \
+        -d $'{
           "body": "楠神您好，您的【AutoBuild-OpenWrt】仓库的 OpenWRT x86_64 位固件编译正在初始化编译环境和配置，即将开始编译！",
           "device_key": "DQ7N6NLNXhLnAgZHJjL8PR",
           "title": "openWRT即将编译",
@@ -60,7 +59,7 @@ jobs:
           "icon": "https://cdn.drixn.com/img/avatar.png",
           "group": "openWRT",
           "url": "https://www.drixn.com"
-          }' \
+          }' 
         echo "status=success" >> $GITHUB_OUTPUT
 
     - name: Initialization environment
